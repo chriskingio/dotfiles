@@ -1,0 +1,100 @@
+##
+# starship.toml config
+##
+
+# Prompt-wide configuration items
+
+# Get editor completions based on the config schema - if the lsp supports it
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# key format for the line
+format = """$cmd_duration\
+$jobs\
+$memory_usage\
+$python\
+[\\[](fg:239)\
+$username\
+[@](fg:239)\
+$hostname\
+[:](fg:239)\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+[\\]](fg:239)\
+$character"""
+
+# don't add a blank link to the prompt
+add_newline = false
+# continuation just like bash
+continuation_prompt = ">  "
+
+##
+# Core prompt display - things you have to look at all the time
+##
+[username]
+format = "[$user]($style)"
+show_always = true
+style_user = 'fg:33'
+
+[hostname]
+format = "[$hostname]($style)"
+ssh_only = false
+style = 'fg:33'
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+truncate_to_repo = true
+#truncation_symbol = ".../"
+style = 'fg:33'
+
+[character]
+success_symbol = "[\\$](fg:239)"
+error_symbol = "[\\$](bold red)"
+
+##
+# Context-sensitive stuff - stuff that only pops up when you need it
+##
+[python]
+format = """[\\[](fg:239)\
+[(${version})(|$virtualenv)]($style)\
+[\\]](fg:239)"""
+version_format = "$major.$minor"
+
+[jobs]
+format = """[\\[](fg:239)\
+[$symbol$number]($style)\
+[\\]](fg:239)"""
+symbol = ""
+style = 'fg:33'
+
+[cmd_duration]
+disabled = true
+format = """[\\[](fg:239)\
+[$duration]($style)\
+[\\]](fg:239)"""
+style = 'red'
+min_time = 30_000 # show anything longer than 30s
+#show_notifications = true 
+#min_time_to_notify = 60_000 # gui notification for anything longer than 60s
+
+[git_branch]
+format = """ [\\(](fg:239)\
+[$symbol$branch(:$remote_branch)]($style)\
+"""
+symbol = ''
+style = 'green'
+
+[git_status]
+format = """([\\[$all_status$ahead_behind\\]]($style))\
+[\\)](fg:239)"""
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[memory_usage]
+format = """[$symbol${ram_pct}]($style)"""
+symbol = ''
+style = 'bold red'
+disabled = false
+threshold = 80
