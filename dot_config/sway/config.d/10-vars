@@ -1,0 +1,19 @@
+##
+# General variables
+##
+
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+##
+# Application variables
+##
+
+set $term foot
+set $menu wofi --show drun
+
+# vim: ft=swayconfig

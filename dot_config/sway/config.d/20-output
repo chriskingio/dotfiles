@@ -1,0 +1,14 @@
+##
+# Outputs
+##
+
+# Wallpaper
+output * bg ~/.wallpaper fill
+
+# Display
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 {
+	scale 1
+}
+
+# vim: ft=swayconfig

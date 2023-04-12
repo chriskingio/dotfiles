@@ -1,0 +1,18 @@
+##
+# Appearance
+##
+
+default_border pixel 2
+gaps outer 5
+gaps inner 5
+smart_borders on
+
+# class          border    backgr    text      indicator child_border
+client.focused   "#9f1209" "#9f1209" "#ffffff" "#9f1209"
+
+for_window [app_id="pavucontrol"] floating enable, resize size 1316 774
+for_window [app_id="blueman-manager"] floating enable, resize set 1316 774
+for_window [window_role="About"] floating enable
+
+
+# vim: ft=swayconfig
