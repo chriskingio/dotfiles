@@ -147,4 +147,23 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+a workspace back_and_forth
 
+# Volume controls
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5    
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5    
+bindsym XF86AudioMute exec pamixer --toggle-mute
+
+# Media controls
+# Skip Forward/backwards
+set $pctl playerctl -p playerctld
+bindsym XF86AudioPrev exec --no-startup-id $pctl previous
+bindsym XF86AudioPlay exec --no-startup-id $pctl play-pause
+bindsym XF86AudioNext exec --no-startup-id $pctl next
+# change what media source the keys are controlling
+bindsym $mod+XF86AudioPrev exec playerctld unshift && notify-send \
+    "Now controlling player $(playerctl -l | head -n1)" --app-name playerctld
+bindsym $mod+XF86AudioNext exec playerctld   shift && notify-send \
+    "Now controlling player $(playerctl -l | head -n1)" --app-name playerctld
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+
 # vim: ft=swayconfig
