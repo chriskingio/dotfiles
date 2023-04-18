@@ -1,5 +1,5 @@
 // docs: https://www.mankier.com/5/waybar
-// vim: set ft=json5
+// vim: ft=json5
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
@@ -24,10 +24,9 @@
     // center
     // right
     "clock": {
-        // "timezone": "America/New_York",
-	"format": "{:%a %b %e %I:%M %p}",
+	"format": "{:%a %b %e %I:%M %p}", // Tue Apr 18 11:29 AM
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "format-alt": "{:%I:%M %p}"
+        "format-alt": "{:%I:%M %p}" // 11:29 AM
     },
     "tray": {
         "icon-size": 21,
@@ -35,7 +34,6 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -48,13 +46,13 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-ethernet": "{ipaddr}/{cidr} <big></big>",
+        "tooltip-format": "{ifname} via {gwaddr} <big></big>",
+        "format-linked": "{ifname} (No IP) <big></big>",
+        "format-disconnected": "Disconnected ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
+	// TODO: handle better
         "on-click-right": "/usr/bin/python3 /home/king/.local/src/networkmanager-dmenu/networkmanager_dmenu",
     },
     "pulseaudio": {
@@ -75,7 +73,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-	"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click": "pamixer --toggle-mute",
         "on-click-right": "pavucontrol"
     },
 }
