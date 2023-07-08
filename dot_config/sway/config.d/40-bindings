@@ -120,6 +120,7 @@
 # Screenshots:
 #
     bindsym $mod+Shift+p exec grim -g "$(slurp -d)" - | wl-copy -t 'image/png'
+    bindsym Print exec grim - | wl-copy -t 'image/png' && notify-send 'Screenshot taken'
 #
 # Resizing containers:
 #
