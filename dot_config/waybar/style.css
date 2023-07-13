@@ -1,3 +1,5 @@
+@import url('file:///home/king/.cache/wal/colors-waybar.css');
+
 * {
     /* `fonts-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -5,9 +7,15 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    /* background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    color: #ffffff; */
+    /* TODO: work out transparency for background-color,
+     * because I liked a bit of opacity; the previous
+     * default used 3px solid rgba(..., 0.5) */
+    background-color: @background;
+    border-bottom: @color0;
+    color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -15,15 +23,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -45,13 +44,13 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @background;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @foreground;
 }
 
 #workspaces button:hover {
@@ -59,12 +58,12 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: @background;
+    box-shadow: inset 0 -3px @foreground;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @color2;
 }
 
 #mode {
@@ -89,7 +88,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: @foreground;
 }
 
 #window,
@@ -108,17 +107,17 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @background;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @background;
+    color: @foreground;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @foreground;
+    background-color: @background;
 }
 
 @keyframes blink {
@@ -129,8 +128,10 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    /*background-color: #f53c3c;
+    color: #ffffff;*/
+    background-color: @background;
+    color: @foreground;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -160,7 +161,7 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: @background;
 }
 
 #network.disconnected {
@@ -168,8 +169,8 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: @background;
+    color: @foreground;
 }
 
 #pulseaudio.muted {
@@ -209,7 +210,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @background;
 }
 
 #tray > .passive {
