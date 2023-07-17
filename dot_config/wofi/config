@@ -8,4 +8,4 @@ term=foot
 halign=fill
 orientation=vertical
 content_halign=fill
-#drun-display_generic=true
+drun-display_generic=true
