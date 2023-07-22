@@ -149,9 +149,12 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+a workspace back_and_forth
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec pamixer --increase 5    
-bindsym XF86AudioLowerVolume exec pamixer --decrease 5    
-bindsym XF86AudioMute exec pamixer --toggle-mute
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5 && \
+	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5 && \
+	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
+bindsym XF86AudioMute exec pamixer --toggle-mute && \
+	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
 
 # Media controls
 # Skip Forward/backwards
@@ -164,7 +167,9 @@ bindsym $mod+XF86AudioPrev exec playerctld unshift && notify-send \
     "Now controlling player $(playerctl -l | head -n1)" --app-name playerctld
 bindsym $mod+XF86AudioNext exec playerctld   shift && notify-send \
     "Now controlling player $(playerctl -l | head -n1)" --app-name playerctld
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && \
+    notify-send -a center-indicator -h int:value:$(light -G) " "
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && \
+    notify-send -a center-indicator -h int:value:$(light -G) " "
 
 # vim: ft=swayconfig
