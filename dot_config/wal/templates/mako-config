@@ -1,0 +1,50 @@
+##
+# Main configuration
+##
+
+# Appearance
+font=FontAwesome 10
+
+width=450
+height=350
+padding=10
+margin=0,15
+
+#background-color=#2728229a
+background-color={background}{alpha}
+#border-color=#f8f8f2ff
+border-color={foreground}
+border-size=1
+border-radius=10
+
+default-timeout=5000
+group-by=summary
+
+# Grouping overrides
+[grouped]
+format=<b>%s</b>\n%b
+
+##
+# Overrides for app "center-indicator" (volume, brightness indicators, etc)
+##
+[app-name=center-indicator]
+# Test with `notify-send -a center-indicator -h int:value:80.0 "    "`
+font=FontAwesome 22
+text-alignment=center
+
+width=800
+height=600
+padding=100
+
+#background-color=#2728229a
+#border-color=#f8f8f2ff
+#progress-color=over #f92672FF
+progress-color=over {color1}
+
+default-timeout=600
+group-by=app-name
+max-icon-size=64
+icon-path=/usr/share/icons/Adwaita
+
+anchor=center
+# vim: set ft=ini
