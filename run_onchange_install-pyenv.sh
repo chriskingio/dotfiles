@@ -15,7 +15,7 @@ if [ ! -d ${HOME}/.pyenv ]; then
     curl https://pyenv.run | bash
 
     # make sure that .bashrc is up-to-date
-    echo $PYENV_SETUP >> ~/.bashrc
+    echo "$PYENV_SETUP" >> ~/.bashrc
 fi
 
 # Just in case we're in a shell that doesn't respect .bashrc
