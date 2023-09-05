@@ -26,8 +26,9 @@ eval "$PYENV_SETUP"
 
 # Install python versions
 for version in ${PYENV_VERSIONS[@]}; do 
-    pyenv install $version
+    # use --skip-existing to enforce some amount of idempotency
+    pyenv install --skip-existing $version
 done
 
-# Set the deafult
+# Set the default
 pyenv global ${PYENV_DEFAULT_GLOBAL}
