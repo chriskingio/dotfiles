@@ -25,7 +25,7 @@ fi
 eval "$PYENV_SETUP"
 
 # Install python versions
-for version in ${PYENV_VERSION[@]}; do 
+for version in ${PYENV_VERSIONS[@]}; do 
     pyenv install $version
 done
 
