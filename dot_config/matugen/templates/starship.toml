@@ -104,12 +104,12 @@ threshold = 80
 # Color palette
 ##
 [palettes.matugen]
-primary = '#9fcafd'
-secondary = '#bac8db'
-tertiary = '#d6bee5'
-error = '#ffb4ab'
-surface = '#101418'
-on_surface = '#e1e2e8'
-surface_variant = '#42474e'
-on_surface_variant = '#c3c7cf'
-outline = '#8d9199'
+primary = '{{colors.primary.dark.hex}}'
+secondary = '{{colors.secondary.dark.hex}}'
+tertiary = '{{colors.tertiary.dark.hex}}'
+error = '{{colors.error.dark.hex}}'
+surface = '{{colors.surface.dark.hex}}'
+on_surface = '{{colors.on_surface.dark.hex}}'
+surface_variant = '{{colors.surface_variant.dark.hex}}'
+on_surface_variant = '{{colors.on_surface_variant.dark.hex}}'
+outline = '{{colors.outline.dark.hex}}'

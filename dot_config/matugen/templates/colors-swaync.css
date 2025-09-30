@@ -1,0 +1,16 @@
+/* Material You colors for swaync */
+@define-color cc-bg alpha({{colors.surface.dark.hex}}, 0.85);
+@define-color noti-border-color alpha({{colors.outline.dark.hex}}, 0.3);
+@define-color noti-bg alpha({{colors.surface_container.dark.hex}}, 0.9);
+@define-color noti-bg-opaque {{colors.surface_container.dark.hex}};
+@define-color noti-bg-darker alpha({{colors.surface.dark.hex}}, 0.95);
+@define-color noti-bg-hover alpha({{colors.surface_container_high.dark.hex}}, 0.9);
+@define-color noti-bg-hover-opaque {{colors.surface_container_high.dark.hex}};
+@define-color noti-bg-focus alpha({{colors.surface_container_highest.dark.hex}}, 0.8);
+@define-color noti-close-bg alpha({{colors.surface_variant.dark.hex}}, 0.5);
+@define-color noti-close-bg-hover alpha({{colors.primary.dark.hex}}, 0.7);
+@define-color text-color {{colors.on_surface.dark.hex}};
+@define-color text-color-disabled {{colors.on_surface_variant.dark.hex}};
+@define-color bg-selected {{colors.primary.dark.hex}};
+@define-color mpris-album-art-overlay alpha({{colors.scrim.dark.hex}}, 0.6);
+@define-color mpris-button-hover alpha({{colors.surface_container_highest.dark.hex}}, 0.7);

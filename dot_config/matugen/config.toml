@@ -21,3 +21,12 @@ post_hook = 'swaymsg reload'
 [templates.swaylock]
 input_path = '~/.config/matugen/templates/swaylock'
 output_path = '~/.cache/matugen/swaylock'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/colors-swaync.css'
+output_path = '~/.cache/matugen/colors-swaync.css'
+post_hook = 'swaync-client -rs'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'
