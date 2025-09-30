@@ -1,22 +1,13 @@
-/* NOTE: waybar will break without this file */
-@import url('file:///home/king/.cache/wal/colors-waybar.css');
-
 * {
-    /* `fonts-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, "Font Awesome 6 Free", sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    /* background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff; */
-    /* TODO: work out transparency for background-color,
-     * because I liked a bit of opacity; the previous
-     * default used 3px solid rgba(..., 0.5) */
-    background-color: @background;
-    border-bottom: @color0;
-    color: @foreground;
+    color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -24,6 +15,15 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -45,13 +45,18 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px @background;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #a37800;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: @foreground;
+    color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -59,17 +64,17 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: @background;
-    box-shadow: inset 0 -3px @foreground;
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: @color2;
+    background-color: #eb4d4b;
 }
 
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #clock,
@@ -87,9 +92,10 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: @foreground;
+    color: #ffffff;
 }
 
 #window,
@@ -108,17 +114,17 @@ button:hover {
 }
 
 #clock {
-    background-color: @background;
+    background-color: #64727D;
 }
 
 #battery {
-    background-color: @background;
-    color: @foreground;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 #battery.charging, #battery.plugged {
-    color: @foreground;
-    background-color: @background;
+    color: #ffffff;
+    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -128,16 +134,34 @@ button:hover {
     }
 }
 
+/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    /*background-color: #f53c3c;
-    color: #ffffff;*/
-    background-color: @background;
-    color: @foreground;
+    background-color: #f53c3c;
+    color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
-    animation-timing-function: linear;
+    animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
 }
 
 label:focus {
@@ -162,7 +186,7 @@ label:focus {
 }
 
 #network {
-    background-color: @background;
+    background-color: #2980b9;
 }
 
 #network.disconnected {
@@ -170,8 +194,8 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: @background;
-    color: @foreground;
+    background-color: #f1c40f;
+    color: #000000;
 }
 
 #pulseaudio.muted {
@@ -211,7 +235,7 @@ label:focus {
 }
 
 #tray {
-    background-color: @background;
+    background-color: #2980b9;
 }
 
 #tray > .passive {
@@ -279,4 +303,29 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
+
+#custom-notification {
+    font-family: "notoSansMono Nerd Font";
 }
