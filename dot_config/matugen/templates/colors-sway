@@ -1,0 +1,21 @@
+set $wallpaper {{image}}
+
+set $background {{colors.surface.dark.hex}}
+set $foreground {{colors.on_surface.dark.hex}}
+
+set $color0 {{colors.surface.dark.hex}}
+set $color1 {{colors.primary.dark.hex}}
+set $color2 {{colors.secondary.dark.hex}}
+set $color3 {{colors.tertiary.dark.hex}}
+set $color4 {{colors.primary_container.dark.hex}}
+set $color5 {{colors.secondary_container.dark.hex}}
+set $color6 {{colors.tertiary_container.dark.hex}}
+set $color7 {{colors.on_surface.dark.hex}}
+set $color8 {{colors.surface_variant.dark.hex}}
+set $color9 {{colors.primary.dark.hex}}
+set $color10 {{colors.secondary.dark.hex}}
+set $color11 {{colors.tertiary.dark.hex}}
+set $color12 {{colors.primary_container.dark.hex}}
+set $color13 {{colors.secondary_container.dark.hex}}
+set $color14 {{colors.tertiary_container.dark.hex}}
+set $color15 {{colors.on_surface.dark.hex}}

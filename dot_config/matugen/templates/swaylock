@@ -1,0 +1,43 @@
+ignore-empty-password
+show-failed-attempts
+daemonize
+
+# Colors from matugen (Material You)
+color={{colors.surface.dark.hex | replace: "#", ""}}
+
+indicator-radius=240
+indicator-thickness=20
+indicator-caps-lock
+
+# Inside circle colors (with transparency)
+inside-color={{colors.surface.dark.hex | replace: "#", ""}}99
+inside-clear-color={{colors.primary.dark.hex | replace: "#", ""}}00
+inside-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}00
+inside-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}00
+inside-wrong-color={{colors.error.dark.hex | replace: "#", ""}}00
+
+# Ring colors (semi-transparent)
+ring-color={{colors.surface.dark.hex | replace: "#", ""}}D9
+ring-clear-color={{colors.primary.dark.hex | replace: "#", ""}}D9
+ring-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}D9
+ring-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}D9
+ring-wrong-color={{colors.error.dark.hex | replace: "#", ""}}D9
+
+# Line colors (state indicators)
+line-color=00000000
+line-clear-color={{colors.primary.dark.hex | replace: "#", ""}}FF
+line-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}FF
+line-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}FF
+line-wrong-color={{colors.error.dark.hex | replace: "#", ""}}FF
+
+# Text colors
+text-clear-color={{colors.primary.dark.hex | replace: "#", ""}}00
+text-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}00
+text-wrong-color={{colors.error.dark.hex | replace: "#", ""}}00
+
+# Backspace and caps lock highlights
+bs-hl-color={{colors.error.dark.hex | replace: "#", ""}}FF
+caps-lock-key-hl-color={{colors.primary.dark.hex | replace: "#", ""}}FF
+caps-lock-bs-hl-color={{colors.error.dark.hex | replace: "#", ""}}FF
+disable-caps-lock-text
+text-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}

@@ -1,55 +1,50 @@
+@import url("file:///home/king/.cache/matugen/colors-wofi.css");
+
+* {
+    font-family: monospace;
+    font-size: 14px;
+}
+
 window {
-    margin: 0px;
-    /*background-color: #282a36;*/
-    background-color: --wofi-color0;
-    border-radius: 30px;
-    border: 2px solid --wofi-color15;
+    background: alpha(@background, 0.99);
+    border: 1px solid @primary;
+    border-radius: 8px;
 }
 
 #input {
-    margin: 5px;
+    margin: 8px;
+    padding: 8px 12px;
+    background-color: @surface_variant;
+    color: @on_surface_variant;
     border: none;
-    color: --wofi-color15;
-    background-color: #44475a;
-    background-color: --wofi-color0;
-    border-radius: 30px;
+    border-radius: 4px;
 }
 
 #inner-box {
-    margin: 5px;
-    border: none;
-    background-color: #282a36;
-    background-color: --wofi-color0;
-    border-radius: 30px;
+    background-color: transparent;
 }
 
 #outer-box {
-    margin: 15px;
-    border: none;
-    background-color: #282a36;
-    background-color: --wofi-color0;
+    background-color: transparent;
+    padding: 8px;
 }
 
 #scroll {
     margin: 0px;
-    border: none;
 }
 
 #text {
-    margin: 5px;
-    border: none;
-    color: --wofi-color15;
-} 
-
-#entry:selected {
-    background-color: --wofi-color15;
-    border-radius: 20px;
-    outline: none;
+    padding: 4px;
+    color: @foreground;
 }
 
-#entry:selected * {
-    background-color: #44475a;
-    background-color: --wofi-color0;
-    border-radius: 20px;
-    outline: none;
+#entry {
+    padding: 6px 12px;
+    margin: 2px 0px;
+}
+
+#entry:selected {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border-radius: 4px;
 }

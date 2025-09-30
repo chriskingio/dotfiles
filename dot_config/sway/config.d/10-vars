@@ -17,6 +17,6 @@ set $term foot
 set $menu wofi --insensitive --matching=fuzzy --allow-images --show=drun
 
 # Theme variables
-include "$HOME/.cache/wal/colors-sway"
+include "$HOME/.cache/matugen/colors-sway"
 
 # vim: ft=swayconfig
