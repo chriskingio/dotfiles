@@ -3,8 +3,9 @@
 ##
 
 default_border pixel 2
-gaps outer 5
-gaps inner 5
+default_floating_border none
+gaps outer 3
+gaps inner 8
 smart_borders on
 
 # class          border          backgr          text            indicator       child_border

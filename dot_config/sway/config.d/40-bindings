@@ -153,7 +153,7 @@ bindsym $mod+Shift+a workspace back_and_forth
 bindsym XF86AudioRaiseVolume exec pamixer --increase 5 && \
 	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
 bindsym XF86AudioLowerVolume exec pamixer --decrease 5 && \
-	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)   
+	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
 bindsym XF86AudioMute exec pamixer --toggle-mute && \
 	notify-send -a center-indicator -h int:value:$(pamixer --get-volume) $(pamixer --get-volume-human)
 
@@ -174,5 +174,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && \
     notify-send -a center-indicator -h int:value:$(light -G) " "
 # "projector" button
 bindsym $mod+p exec wdisplays
+# swaync appear/dismiss
+bindsym $mod+Shift+d exec swaync-client -t -sw
 
 # vim: ft=swayconfig

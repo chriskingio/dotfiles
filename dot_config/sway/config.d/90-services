@@ -16,7 +16,7 @@
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
          timeout 300 'swaylock' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock'
 
 # Status Bar:
@@ -37,8 +37,8 @@ bar {
     swaybar_command waybar
 }
 
-exec mako
-exec blueman-applet
-exec udiskie --tray
+exec --no-startup-id sleep 1 && blueman-applet
+exec udiskie --smart-tray --appindicator
+exec swaync
 
 # vim: ft=swayconfig
