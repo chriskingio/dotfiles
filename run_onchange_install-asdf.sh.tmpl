@@ -1,0 +1,140 @@
+#!/bin/bash
+# .tool-versions hash: {{ includeTemplate "dot_tool-versions" | sha256sum }}
+
+VERSION='v0.18.0'
+# TODO: detect these
+OS='linux'
+ARCH='amd64'
+CURL='curl'
+
+URL_TEMPLATE='https://github.com/asdf-vm/asdf/releases/download/${VERSION}/asdf-${VERSION}-${OS}-${ARCH}.tar.gz'
+
+function versionCmp() {
+    v1="${1#v}"
+    v2="${2#v}"
+
+    IFS='.' read -r -a v1Parts <<< "$v1"
+    IFS='.' read -r -a v2Parts <<< "$v2"
+
+    for i in {0..2}; do
+        local n1="${v1Parts[$i]:-0}"
+        local n2="${v2Parts[$i]:-0}"
+
+        if (( n1 > n2 )); then
+            echo "greater"
+            return
+        elif (( n1 < n2 )); then
+            echo "lower"
+            return
+        fi
+    done
+
+    echo "equal"
+}
+
+# Check for prereqs
+function prereqs() {
+    echo -n 'Looking for curl... '
+    CURL=$(command -v curl 2>/dev/null)
+    if [[ -z $CURL ]]; then
+        echo 'not found'
+        return 1
+    fi
+    echo "found at $CURL"
+}
+
+# Attempt to detect and override OS/ARCH, if applicable
+function detect() {
+    os_version=$(uname -s | tr '[:upper:]' '[:lower:]')
+    case $os_version in
+        linux)
+            OS=$os_version
+            ;;
+       *)
+           echo "Unsupported OS $os_version"
+           return 1
+           ;;
+    esac
+    arch=$(uname -m)
+    case $arch in
+        x86_64) ARCH='amd64' ;;
+        aarch64|arm64) ARCH='arm64' ;;
+        *)
+            echo "Unsupported architecture $arch"
+            return 1
+    esac
+}
+
+# Check to see if we even have to install (or update) asdf
+function check() {
+    if [ -f "${HOME}/.local/bin/asdf" ]; then
+        detected_version=$(${HOME}/.local/bin/asdf --version 2>/dev/null | egrep -o 'v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+')
+        if [ -z "$detected_version" ]; then
+            echo "Warning: Couldn't detect asdf version, reinstalling"
+            return 1
+        fi
+        cmp=$(versionCmp "$VERSION" "${detected_version}")
+        if [[ "$cmp" = "equal" || "$cmp" = "lower" ]]; then
+            return 0
+        fi
+    fi
+
+    return 1 # need to install
+}
+
+install() {
+    url=$(envsubst <<< "$URL_TEMPLATE")
+    tmpfile=$(mktemp -t asdf.XXXXXX.tgz)
+    if ! $CURL -fsSL "$url" --output "$tmpfile"; then
+        echo "Failed to download asdf from $url"
+        rm -f "$tmpfile"
+        return 1
+    fi
+
+    echo "Extracting to ~/.local/bin/asdf"
+    mkdir -p "${HOME}/.local/bin"
+    if ! tar xzf "$tmpfile" -C "${HOME}/.local/bin/"; then
+        echo "Failed to extract asdf"
+        rm -f "$tmpfile"
+        return 1
+    fi
+    chmod +x "${HOME}/.local/bin/asdf"
+
+    rm -f "$tmpfile"
+    echo "asdf ${VERSION} installed"
+}
+
+install_tools() {
+    asdf_bin="${HOME}/.local/bin/asdf"
+
+    if [ ! -f "${HOME}/.tool-versions" ]; then
+        echo "No .tool-versions file found"
+        return 0
+    fi
+
+    echo "Installing asdf plugins and tools..."
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+
+        # Extract tool name (first field)
+        tool=$(echo "$line" | awk '{print $1}')
+
+        if ! grep -q "^${tool}$" <<< $($asdf_bin plugin list); then
+            echo "Adding plugin: $tool"
+            $asdf_bin plugin add "$tool" || echo "Failed to add plugin $tool"
+        fi
+    done < "${HOME}/.tool-versions"
+
+    $asdf_bin install || echo "Tools failed to install"
+}
+
+prereqs || exit 1
+detect || exit 1
+if check; then
+    echo "asdf already installed"
+else
+    install || exit 1
+fi
+
+install_tools

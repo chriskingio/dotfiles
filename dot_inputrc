@@ -1,0 +1,42 @@
+# Colorize normal bash output and provide symbols where applicable
+set colored-stats on
+set visible-stats on
+set colored-completion-prefix on
+# Make completions more compact by displaying them horizontally
+set completion-display-width
+
+# Make typing a bit faster
+set completion-ignore-case On
+set expand-tilde on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set bell-style none
+set match-hidden-files off
+
+# Better history search with arrow keys
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Use the text that has already been typed as the prefix for searching
+set history-preserve-point on
+
+# Allow UTF-8 input and output
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Show extra file information when completing, like `ls -F`
+set mark-symlinked-directories on
+
+# vi mode
+set editing-mode vi
+
+$if mode=vi
+    set keymap vi-insert
+    "\e.": yank-last-arg
+    "\e_": yank-last-arg
+    "\C-l": clear-screen
+
+    set keymap vi-command
+    "\C-l": clear-screen
+$endif
