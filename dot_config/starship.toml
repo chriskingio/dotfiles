@@ -48,6 +48,8 @@ format = "[$path]($style)[$read_only]($read_only_style)"
 truncate_to_repo = true
 #truncation_symbol = ".../"
 style = 'primary'
+read_only = " 󰌾"
+read_only_style = "error"
 
 [character]
 success_symbol = "[\\$](outline)"
@@ -61,6 +63,7 @@ format = """[\\[](outline)\
 [(${version})(|$virtualenv)]($style)\
 [\\]](outline)"""
 version_format = "$major.$minor"
+style = "secondary"
 
 [jobs]
 format = """[\\[](outline)\
@@ -104,12 +107,50 @@ threshold = 80
 # Color palette
 ##
 [palettes.matugen]
-primary = '#9fcafd'
-secondary = '#bac8db'
-tertiary = '#d6bee5'
+# Primary colors
+primary = '#aad290'
+on_primary = '#183807'
+primary_container = '#2e4f1c'
+on_primary_container = '#c5efaa'
+inverse_primary = '#456731'
+
+# Secondary colors
+secondary = '#bdcbaf'
+on_secondary = '#283420'
+secondary_container = '#3e4a35'
+on_secondary_container = '#d9e7ca'
+
+# Tertiary colors
+tertiary = '#a0cfcf'
+on_tertiary = '#003737'
+tertiary_container = '#1e4e4e'
+on_tertiary_container = '#bbebeb'
+
+# Error colors
 error = '#ffb4ab'
-surface = '#101418'
-on_surface = '#e1e2e8'
-surface_variant = '#42474e'
-on_surface_variant = '#c3c7cf'
-outline = '#8d9199'
+on_error = '#690005'
+error_container = '#93000a'
+on_error_container = '#ffdad6'
+
+# Surface colors
+surface = '#11140e'
+on_surface = '#e1e4d9'
+surface_variant = '#43483e'
+on_surface_variant = '#c3c8bb'
+surface_dim = '#11140e'
+surface_bright = '#373a33'
+surface_container = '#1d211a'
+surface_container_high = '#282b24'
+surface_container_highest = '#32362f'
+
+# Inverse colors
+inverse_surface = '#e1e4d9'
+inverse_on_surface = '#2e312b'
+
+# Outline colors
+outline = '#8d9286'
+outline_variant = '#43483e'
+
+# Special colors
+scrim = '#000000'
+shadow = '#000000'

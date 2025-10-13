@@ -8,12 +8,39 @@ gaps outer 3
 gaps inner 8
 smart_borders on
 
-# class          border          backgr          text            indicator       child_border
-client.focused   $color1         $background     $foreground     $color2
+# Focus behavior
+focus_follows_mouse no
+
+# Window colors
+# class                 border           background         text                  indicator        child_border
+client.focused          $primary         $primary_container $on_primary_container $secondary       $primary
+client.focused_inactive $outline_variant $surface_container $on_surface_variant   $outline_variant $outline_variant
+client.unfocused        $outline_variant $surface           $on_surface_variant   $outline_variant $outline_variant
+client.urgent           $error           $error_container   $on_error_container   $tertiary        $error
+client.placeholder      $outline         $surface_dim       $on_surface_variant   $outline         $outline
+client.background       $surface
 
 for_window [app_id="pavucontrol"] floating enable, resize size 1316 774
 for_window [app_id="blueman-manager"] floating enable, resize set 1316 774
-for_window [window_role="About"] floating enable
+for_window [app_id=".*[Pp]icker.*"] floating enable
+for_window [title=".*[Pp]icker.*"] floating enable
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="utility"] floating enable
+for_window [window_type="toolbar"] floating enable
+for_window [window_type="splash"] floating enable
+for_window [window_type="menu"] floating enable
+
+# File chooser dialogs
+for_window [title="Open File"] floating enable
+for_window [title="Save File"] floating enable
+for_window [title="Save As"] floating enable
+
+# Picture-in-picture
+for_window [title="Picture-in-Picture"] floating enable, sticky enable
 
 # vim: ft=swayconfig

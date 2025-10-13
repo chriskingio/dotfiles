@@ -14,3 +14,24 @@
 @define-color bg-selected {{colors.primary.dark.hex}};
 @define-color mpris-album-art-overlay alpha({{colors.scrim.dark.hex}}, 0.6);
 @define-color mpris-button-hover alpha({{colors.surface_container_highest.dark.hex}}, 0.7);
+
+/* Additional semantic colors */
+@define-color primary {{colors.primary.dark.hex}};
+@define-color on_primary {{colors.on_primary.dark.hex}};
+@define-color primary_container {{colors.primary_container.dark.hex}};
+@define-color on_primary_container {{colors.on_primary_container.dark.hex}};
+@define-color secondary {{colors.secondary.dark.hex}};
+@define-color on_secondary {{colors.on_secondary.dark.hex}};
+@define-color tertiary {{colors.tertiary.dark.hex}};
+@define-color on_tertiary {{colors.on_tertiary.dark.hex}};
+@define-color error {{colors.error.dark.hex}};
+@define-color on_error {{colors.on_error.dark.hex}};
+@define-color error_container {{colors.error_container.dark.hex}};
+@define-color on_error_container {{colors.on_error_container.dark.hex}};
+@define-color inverse_surface {{colors.inverse_surface.dark.hex}};
+@define-color inverse_on_surface {{colors.inverse_on_surface.dark.hex}};
+@define-color inverse_primary {{colors.inverse_primary.dark.hex}};
+@define-color outline_variant {{colors.outline_variant.dark.hex}};
+@define-color surface_tint {{colors.surface_tint.dark.hex}};
+@define-color surface_dim {{colors.surface_dim.dark.hex}};
+@define-color surface_bright {{colors.surface_bright.dark.hex}};

@@ -8,9 +8,9 @@
 }
 
 window#waybar {
-    background-color: alpha(@background, 0.5);
-    border-bottom: 2px solid alpha(@primary, 0.5);
-    color: @foreground;
+    background-color: alpha(@surface_container, 0.7);
+    border-bottom: 2px solid alpha(@outline, 0.5);
+    color: @on_surface;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -26,33 +26,42 @@ button {
 }
 
 button:hover {
-    background: alpha(@primary, 0.2);
-    box-shadow: inset 0 -3px alpha(@primary, 0.5);
+    background: alpha(@surface_container_high, 0.8);
+    box-shadow: inset 0 -3px @primary;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: @foreground;
+    color: @on_surface_variant;
 }
 
 #workspaces button:hover {
-    background: alpha(@primary, 0.15);
+    background: alpha(@surface_container_high, 0.5);
+    color: @on_surface;
 }
 
 #workspaces button.focused {
-    background-color: alpha(@color3, 0.6);
-    box-shadow: inset 0 -3px @color3;
+    background-color: @primary_container;
+    color: @on_primary_container;
+    box-shadow: inset 0 -3px @primary;
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background-color: alpha(@color3, 0.6);
+    background-color: @error_container;
+    color: @on_error_container;
+    box-shadow: inset 0 -3px @error;
+    animation-name: blink-urgent;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 #mode {
-    background-color: alpha(@color3, 0.3);
-    box-shadow: inset 0 -3px @color3;
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+    box-shadow: inset 0 -3px @tertiary;
 }
 
 #clock,
@@ -73,9 +82,9 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: @foreground;
+    color: @on_surface;
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.2s ease;
 }
 
 #clock:hover,
@@ -90,7 +99,7 @@ button:hover {
 #wireplumber:hover,
 #tray:hover,
 #idle_inhibitor:hover {
-    background-color: alpha(@color3, 0.2);
+    background-color: alpha(@surface_container_highest, 0.8);
 }
 
 #window,
@@ -111,15 +120,18 @@ button:hover {
 }
 
 #battery.charging, #battery.plugged {
-    color: @color10;
+    color: @secondary;
+    background-color: alpha(@secondary_container, 0.3);
 }
 
 #battery.warning:not(.charging) {
-    color: @color11;
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
 }
 
 #battery.critical:not(.charging) {
-    color: @color3;
+    color: @on_error_container;
+    background-color: @error_container;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -129,40 +141,60 @@ button:hover {
 
 @keyframes blink {
     to {
-        color: alpha(@color3, 0.3);
+        background-color: alpha(@error_container, 0.3);
+    }
+}
+
+@keyframes blink-urgent {
+    from {
+        background-color: @error_container;
+    }
+    50% {
+        background-color: alpha(@error_container, 0.5);
+    }
+    to {
+        background-color: @error_container;
     }
 }
 
 #power-profiles-daemon.performance {
-    color: @color3;
+    color: @on_error_container;
+    background-color: @error_container;
 }
 
 #power-profiles-daemon.balanced {
-    color: @color4;
+    color: @on_primary_container;
+    background-color: @primary_container;
 }
 
 #power-profiles-daemon.power-saver {
-    color: @color10;
+    color: @on_secondary_container;
+    background-color: @secondary_container;
 }
 
 #network.disconnected {
-    color: @color3;
+    color: @on_error_container;
+    background-color: alpha(@error_container, 0.5);
 }
 
 #pulseaudio.muted {
-    color: @color8;
+    color: @on_surface_variant;
+    background-color: alpha(@surface_variant, 0.5);
 }
 
 #wireplumber.muted {
-    color: @color3;
+    color: @on_surface_variant;
+    background-color: alpha(@surface_variant, 0.5);
 }
 
 #temperature.critical {
-    color: @color3;
+    color: @on_error_container;
+    background-color: @error_container;
 }
 
 #idle_inhibitor.activated {
-    color: @color11;
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
 }
 
 #tray > .passive {
@@ -171,7 +203,8 @@ button:hover {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: alpha(@color3, 0.3);
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
 }
 
 #scratchpad.empty {
@@ -184,19 +217,22 @@ button:hover {
 
 #privacy-item {
     padding: 0 5px;
-    color: @foreground;
+    color: @on_surface;
 }
 
 #privacy-item.screenshare {
-    background-color: alpha(@color3, 0.3);
+    background-color: @error_container;
+    color: @on_error_container;
 }
 
 #privacy-item.audio-in {
-    background-color: alpha(@color10, 0.3);
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
 }
 
 #privacy-item.audio-out {
-    background-color: alpha(@color4, 0.3);
+    background-color: @secondary_container;
+    color: @on_secondary_container;
 }
 
 #custom-notification {

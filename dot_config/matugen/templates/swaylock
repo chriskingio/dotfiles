@@ -2,42 +2,48 @@ ignore-empty-password
 show-failed-attempts
 daemonize
 
-# Colors from matugen (Material You)
 color={{colors.surface.dark.hex | replace: "#", ""}}
 
 indicator-radius=240
 indicator-thickness=20
 indicator-caps-lock
 
-# Inside circle colors (with transparency)
-inside-color={{colors.surface.dark.hex | replace: "#", ""}}99
-inside-clear-color={{colors.primary.dark.hex | replace: "#", ""}}00
-inside-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}00
-inside-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}00
-inside-wrong-color={{colors.error.dark.hex | replace: "#", ""}}00
+# Inside circle colors
+inside-color={{colors.surface_container.dark.hex | replace: "#", ""}}CC
+inside-clear-color={{colors.primary_container.dark.hex | replace: "#", ""}}DD
+inside-caps-lock-color={{colors.tertiary_container.dark.hex | replace: "#", ""}}DD
+inside-ver-color={{colors.secondary_container.dark.hex | replace: "#", ""}}DD
+inside-wrong-color={{colors.error_container.dark.hex | replace: "#", ""}}DD
 
-# Ring colors (semi-transparent)
-ring-color={{colors.surface.dark.hex | replace: "#", ""}}D9
-ring-clear-color={{colors.primary.dark.hex | replace: "#", ""}}D9
-ring-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}D9
-ring-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}D9
-ring-wrong-color={{colors.error.dark.hex | replace: "#", ""}}D9
+# Ring colors
+ring-color={{colors.outline.dark.hex | replace: "#", ""}}FF
+ring-clear-color={{colors.primary.dark.hex | replace: "#", ""}}FF
+ring-caps-lock-color={{colors.tertiary.dark.hex | replace: "#", ""}}FF
+ring-ver-color={{colors.secondary.dark.hex | replace: "#", ""}}FF
+ring-wrong-color={{colors.error.dark.hex | replace: "#", ""}}FF
 
-# Line colors (state indicators)
-line-color=00000000
+# Separator line colors
+line-color={{colors.outline_variant.dark.hex | replace: "#", ""}}66
 line-clear-color={{colors.primary.dark.hex | replace: "#", ""}}FF
-line-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}FF
-line-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}FF
+line-caps-lock-color={{colors.tertiary.dark.hex | replace: "#", ""}}FF
+line-ver-color={{colors.secondary.dark.hex | replace: "#", ""}}FF
 line-wrong-color={{colors.error.dark.hex | replace: "#", ""}}FF
 
 # Text colors
-text-clear-color={{colors.primary.dark.hex | replace: "#", ""}}00
-text-ver-color={{colors.primary_container.dark.hex | replace: "#", ""}}00
-text-wrong-color={{colors.error.dark.hex | replace: "#", ""}}00
+text-color={{colors.on_surface.dark.hex | replace: "#", ""}}FF
+text-clear-color={{colors.on_primary_container.dark.hex | replace: "#", ""}}FF
+text-ver-color={{colors.on_secondary_container.dark.hex | replace: "#", ""}}FF
+text-wrong-color={{colors.on_error_container.dark.hex | replace: "#", ""}}FF
 
-# Backspace and caps lock highlights
+# Key highlights
 bs-hl-color={{colors.error.dark.hex | replace: "#", ""}}FF
-caps-lock-key-hl-color={{colors.primary.dark.hex | replace: "#", ""}}FF
+key-hl-color={{colors.primary.dark.hex | replace: "#", ""}}FF
+
+# Caps locks
+caps-lock-key-hl-color={{colors.tertiary.dark.hex | replace: "#", ""}}FF
 caps-lock-bs-hl-color={{colors.error.dark.hex | replace: "#", ""}}FF
+text-caps-lock-color={{colors.on_tertiary_container.dark.hex | replace: "#", ""}}FF
 disable-caps-lock-text
-text-caps-lock-color={{colors.secondary.dark.hex | replace: "#", ""}}
+
+# Separator color
+separator-color={{colors.outline_variant.dark.hex | replace: "#", ""}}88

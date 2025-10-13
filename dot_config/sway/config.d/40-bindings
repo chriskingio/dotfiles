@@ -177,4 +177,8 @@ bindsym $mod+p exec wdisplays
 # swaync appear/dismiss
 bindsym $mod+Shift+d exec swaync-client -t -sw
 
+# Clipboard history (see services for the exec that watches for it)
+bindsym $mod+c exec cliphist list | wofi -dmenu | cliphist decode | wl-copy
+
+
 # vim: ft=swayconfig

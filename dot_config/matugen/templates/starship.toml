@@ -48,6 +48,8 @@ format = "[$path]($style)[$read_only]($read_only_style)"
 truncate_to_repo = true
 #truncation_symbol = ".../"
 style = 'primary'
+read_only = " 󰌾"
+read_only_style = "error"
 
 [character]
 success_symbol = "[\\$](outline)"
@@ -61,6 +63,7 @@ format = """[\\[](outline)\
 [(${version})(|$virtualenv)]($style)\
 [\\]](outline)"""
 version_format = "$major.$minor"
+style = "secondary"
 
 [jobs]
 format = """[\\[](outline)\
@@ -104,12 +107,50 @@ threshold = 80
 # Color palette
 ##
 [palettes.matugen]
+# Primary colors
 primary = '{{colors.primary.dark.hex}}'
+on_primary = '{{colors.on_primary.dark.hex}}'
+primary_container = '{{colors.primary_container.dark.hex}}'
+on_primary_container = '{{colors.on_primary_container.dark.hex}}'
+inverse_primary = '{{colors.inverse_primary.dark.hex}}'
+
+# Secondary colors
 secondary = '{{colors.secondary.dark.hex}}'
+on_secondary = '{{colors.on_secondary.dark.hex}}'
+secondary_container = '{{colors.secondary_container.dark.hex}}'
+on_secondary_container = '{{colors.on_secondary_container.dark.hex}}'
+
+# Tertiary colors
 tertiary = '{{colors.tertiary.dark.hex}}'
+on_tertiary = '{{colors.on_tertiary.dark.hex}}'
+tertiary_container = '{{colors.tertiary_container.dark.hex}}'
+on_tertiary_container = '{{colors.on_tertiary_container.dark.hex}}'
+
+# Error colors
 error = '{{colors.error.dark.hex}}'
+on_error = '{{colors.on_error.dark.hex}}'
+error_container = '{{colors.error_container.dark.hex}}'
+on_error_container = '{{colors.on_error_container.dark.hex}}'
+
+# Surface colors
 surface = '{{colors.surface.dark.hex}}'
 on_surface = '{{colors.on_surface.dark.hex}}'
 surface_variant = '{{colors.surface_variant.dark.hex}}'
 on_surface_variant = '{{colors.on_surface_variant.dark.hex}}'
+surface_dim = '{{colors.surface_dim.dark.hex}}'
+surface_bright = '{{colors.surface_bright.dark.hex}}'
+surface_container = '{{colors.surface_container.dark.hex}}'
+surface_container_high = '{{colors.surface_container_high.dark.hex}}'
+surface_container_highest = '{{colors.surface_container_highest.dark.hex}}'
+
+# Inverse colors
+inverse_surface = '{{colors.inverse_surface.dark.hex}}'
+inverse_on_surface = '{{colors.inverse_on_surface.dark.hex}}'
+
+# Outline colors
 outline = '{{colors.outline.dark.hex}}'
+outline_variant = '{{colors.outline_variant.dark.hex}}'
+
+# Special colors
+scrim = '{{colors.scrim.dark.hex}}'
+shadow = '{{colors.shadow.dark.hex}}'

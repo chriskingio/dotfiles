@@ -3,6 +3,56 @@ set $wallpaper {{image}}
 set $background {{colors.surface.dark.hex}}
 set $foreground {{colors.on_surface.dark.hex}}
 
+# Primary colors
+set $primary {{colors.primary.dark.hex}}
+set $on_primary {{colors.on_primary.dark.hex}}
+set $primary_container {{colors.primary_container.dark.hex}}
+set $on_primary_container {{colors.on_primary_container.dark.hex}}
+set $inverse_primary {{colors.inverse_primary.dark.hex}}
+
+# Secondary colors
+set $secondary {{colors.secondary.dark.hex}}
+set $on_secondary {{colors.on_secondary.dark.hex}}
+set $secondary_container {{colors.secondary_container.dark.hex}}
+set $on_secondary_container {{colors.on_secondary_container.dark.hex}}
+
+# Tertiary colors
+set $tertiary {{colors.tertiary.dark.hex}}
+set $on_tertiary {{colors.on_tertiary.dark.hex}}
+set $tertiary_container {{colors.tertiary_container.dark.hex}}
+set $on_tertiary_container {{colors.on_tertiary_container.dark.hex}}
+
+# Error colors
+set $error {{colors.error.dark.hex}}
+set $on_error {{colors.on_error.dark.hex}}
+set $error_container {{colors.error_container.dark.hex}}
+set $on_error_container {{colors.on_error_container.dark.hex}}
+
+# Surface colors
+set $surface {{colors.surface.dark.hex}}
+set $on_surface {{colors.on_surface.dark.hex}}
+set $surface_variant {{colors.surface_variant.dark.hex}}
+set $on_surface_variant {{colors.on_surface_variant.dark.hex}}
+set $surface_dim {{colors.surface_dim.dark.hex}}
+set $surface_bright {{colors.surface_bright.dark.hex}}
+set $surface_container {{colors.surface_container.dark.hex}}
+set $surface_container_low {{colors.surface_container_low.dark.hex}}
+set $surface_container_high {{colors.surface_container_high.dark.hex}}
+set $surface_container_highest {{colors.surface_container_highest.dark.hex}}
+
+# Inverse colors
+set $inverse_surface {{colors.inverse_surface.dark.hex}}
+set $inverse_on_surface {{colors.inverse_on_surface.dark.hex}}
+
+# Outline colors
+set $outline {{colors.outline.dark.hex}}
+set $outline_variant {{colors.outline_variant.dark.hex}}
+
+# Special colors
+set $scrim {{colors.scrim.dark.hex}}
+set $shadow {{colors.shadow.dark.hex}}
+
+# Terminal color palette (color0-15)
 set $color0 {{colors.surface.dark.hex}}
 set $color1 {{colors.primary.dark.hex}}
 set $color2 {{colors.secondary.dark.hex}}

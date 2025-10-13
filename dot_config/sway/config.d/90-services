@@ -37,6 +37,10 @@ bar {
     swaybar_command waybar
 }
 
+exec --no-startup-id wl-paste --watch cliphist store
+exec --no-startup-id wl-paste --type text --watch cliphist store
+exec --no-startup-id wl-paste --type image --watch cliphist store
+
 exec --no-startup-id sleep 1 && blueman-applet
 exec udiskie --smart-tray --appindicator
 exec swaync
