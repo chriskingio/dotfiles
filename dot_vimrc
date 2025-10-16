@@ -1,0 +1,49 @@
+" basic settings (vim-sensible does some of these, but adding just in case)
+set nocompatible
+filetype plugin indent on
+syntax on
+
+" ui
+set number
+set showcmd
+set nocursorline
+set wildmenu
+set showmatch
+set laststatus=2
+
+" search
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" performance
+set lazyredraw
+set updatetime=300
+
+" undo
+set nobackup
+set nowritebackup
+set undofile
+set undodir=~/.vim/undodir
+
+" split settings
+set splitbelow
+set splitright
+
+" colors from matugen
+set termguicolors
+colorscheme matugen
+
+let mapleader = " "
+
+for config_file in split(glob('~/.vim/vimrc.d/*.vim'), '\n')
+    execute 'source' config_file
+endfor

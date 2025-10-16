@@ -1,0 +1,7 @@
+# Files and directories to ignore in chezmoi
+
+# vim data
+.vim/undodir/*
+!.vim/undodir/.keep
+.vim/pack
+.vim/.netrwhist

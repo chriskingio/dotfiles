@@ -30,3 +30,7 @@ post_hook = 'swaync-client -rs'
 [templates.starship]
 input_path = '~/.config/matugen/templates/starship.toml'
 output_path = '~/.config/starship.toml'
+
+[templates.vim]
+input_path = '~/.config/matugen/templates/colors.vim'
+output_path = '~/.vim/colors/matugen.vim'
