@@ -10,7 +10,7 @@ format = """$cmd_duration\
 $jobs\
 $memory_usage\
 $python\
-[\\[](outline)\
+[\\\\[](outline)\
 $username\
 [@](outline)\
 $hostname\
@@ -19,7 +19,7 @@ $directory\
 $git_branch\
 $git_status\
 $git_state\
-[\\]](outline)\
+[\\\\]](outline)\
 $character"""
 
 # don't add a blank link to the prompt
@@ -52,46 +52,46 @@ read_only = " 󰌾"
 read_only_style = "error"
 
 [character]
-success_symbol = "[\\$](outline)"
-error_symbol = "[\\$](bold error)"
+success_symbol = "[\\\\$](outline)"
+error_symbol = "[\\\\$](bold error)"
 
 ##
 # Context-sensitive stuff - stuff that only pops up when you need it
 ##
 [python]
-format = """[\\[](outline)\
+format = """[\\\\[](outline)\
 [(${version})(|$virtualenv)]($style)\
-[\\]](outline)"""
+[\\\\]](outline)"""
 version_format = "$major.$minor"
 style = "secondary"
 
 [jobs]
-format = """[\\[](outline)\
+format = """[\\\\[](outline)\
 [$symbol$number]($style)\
-[\\]](outline)"""
+[\\\\]](outline)"""
 symbol = ""
 style = 'primary'
 
 [cmd_duration]
 disabled = true
-format = """[\\[](outline)\
+format = """[\\\\[](outline)\
 [$duration]($style)\
-[\\]](outline)"""
+[\\\\]](outline)"""
 style = 'error'
 min_time = 30_000 # show anything longer than 30s
 #show_notifications = true 
 #min_time_to_notify = 60_000 # gui notification for anything longer than 60s
 
 [git_branch]
-format = """ [\\(](outline)\
+format = """ [\\\\(](outline)\
 [$symbol$branch(:$remote_branch)]($style)\
 """
 symbol = ''
 style = 'secondary'
 
 [git_status]
-format = """([\\[$all_status$ahead_behind\\]]($style))\
-[\\)](outline)"""
+format = """([\\\\[$all_status$ahead_behind\\\\]]($style))\
+[\\\\)](outline)"""
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
